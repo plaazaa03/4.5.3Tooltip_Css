@@ -1,0 +1,10 @@
+/* styles.css */
+
+.check-box {
+    -fx-font-size: 14px;
+}
+
+.label-total {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
