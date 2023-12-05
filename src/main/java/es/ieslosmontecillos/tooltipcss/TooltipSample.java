@@ -32,7 +32,6 @@ public class TooltipSample extends Application {
     @Override
     public void start(Stage stage) {
         Scene scene = new Scene(new Group());
-        scene.getStylesheets().add("es/ieslosmontecillos/tooltipcss/tooltip.css");
         stage.setTitle("Tooltip Sample");
 
         stage.setWidth(330);
@@ -40,10 +39,11 @@ public class TooltipSample extends Application {
 
         total.setFont(new Font("Arial", 20));
 
+        Tooltip tooltip = null;
         for (int i = 0; i < rooms.length; i++) {
             final CheckBox cb = cbs[i] = new CheckBox(rooms[i]);
             final Integer rate = rates[i];
-            final Tooltip tooltip = new Tooltip("$" + rates[i].toString());
+            tooltip = new Tooltip("$" + rates[i].toString());
             tooltip.setFont(new Font("Arial", 16));
             cb.setTooltip(tooltip);
             cb.selectedProperty().addListener(
@@ -71,6 +71,7 @@ public class TooltipSample extends Application {
         ((Group) scene.getRoot()).getChildren().add(root);
 
         stage.setScene(scene);
+        stage.getScene().getStylesheets().add(getClass().getResource("tooltip.css").toExternalForm());
         stage.show();
     }
     public static void main(String[] args) {
